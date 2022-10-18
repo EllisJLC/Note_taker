@@ -5,7 +5,6 @@ const fs = require('fs');
 const util = require('util');
 
 rout.get('/', (req,res) => {
-  console.log(notes);
   if (req) {
     const read = util.promisify(fs.readFile);
     read('./db/db.json')
