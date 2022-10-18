@@ -1,5 +1,5 @@
 const express = require("express");
-const PORT = 3001;
+const port = process.env.PORT || 8000;
 const app = express();
 const db_route = require("./routes/index");
 const path = require("path")
@@ -18,6 +18,6 @@ app.get("/notes", (req, res) => {
 
 app.use("/api",db_route);
 
-app.listen(PORT, () =>
-  console.log(`Express server listening on port ${PORT}!`)
-);
+server.listen(port, () => {
+  console.log("App is running on port " + port);
+});
