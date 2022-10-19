@@ -1,15 +1,15 @@
 const express = require("express");
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 const app = express();
 const db_route = require("./routes/index");
-const path = require("path")
+const path = require("path");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) => 
+app.get("/", (req, res) => //test
 res.sendFile(path.join(__dirname, "./public/index.html"))
 );
 app.get("/notes", (req, res) => {
@@ -18,6 +18,6 @@ app.get("/notes", (req, res) => {
 
 app.use("/api",db_route);
 
-server.listen(port, () => {
-  console.log("App is running on port " + port);
+app.listen(PORT, () => {
+  console.log("App is running on port " + PORT);
 });
